@@ -1,0 +1,22 @@
+{
+  "name": "nodejs-darijacoding",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/smartdev88/Nodejs-DarijaCoding.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/smartdev88/Nodejs-DarijaCoding/issues"
+  },
+  "homepage": "https://github.com/smartdev88/Nodejs-DarijaCoding#readme",
+  "dependencies": {
+    "mysql": "^2.17.1"
+  }
+}
