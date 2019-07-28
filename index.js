@@ -13,15 +13,29 @@ var connexion = mysql.createConnection({
 connexion.connect(function(err) {
     if (err) throw err;
     console.log("Connecté");
-//création base donnée
-    /*connexion.query("CREATE DATABASE appNodejs", (err) => {
-        if(err) throw err;
-        console.log("base de donnée ajoutée");
-    });*/
-//creation de la table users
-    var sql = "CREATE TABLE users (id INT AUTO_INCREMENT PRIMARY KEY, email VARCHAR(255), passe VARCHAR(255))";
+
+    //l'ajout d'un utilisateur
+    /*var sql = "INSERT INTO users (email, passe) VALUES ('lagyassine88@gmail.com', 'yassyassine')";
     connexion.query(sql, (err) => {
         if(err) throw err;
-        console.log("table ajoutée");
+        console.log("utilisateur ajouté");
+    });*/
+
+    //l'ajout de plusieurs utilisateurs
+    /*var users = [
+        ['hamza', '789hamza'],
+        ['soufiane', '789soufiane'],
+        ['anas', '789anas']
+    ];
+    var sql = "INSERT INTO users (email, passe) VALUES ?";
+    connexion.query(sql, [users], (err) => {
+        if(err) throw err;
+        console.log("utilisateurs ajoutés");
+    });*/
+     //l'ajout d'un utilisateur, et afficher son id
+    var sql = "INSERT INTO users (email, passe) VALUES ('issa','issa')";
+    connexion.query(sql, (err, data) => {
+        if(err) throw err;
+        console.log("utilisateur ajouté avec id : ", data.insertId);
     });
 });
