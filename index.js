@@ -14,28 +14,38 @@ connexion.connect(function(err) {
     if (err) throw err;
     console.log("Connecté");
 
-    //l'ajout d'un utilisateur
-    /*var sql = "INSERT INTO users (email, passe) VALUES ('lagyassine88@gmail.com', 'yassyassine')";
-    connexion.query(sql, (err) => {
-        if(err) throw err;
-        console.log("utilisateur ajouté");
-    });*/
-
-    //l'ajout de plusieurs utilisateurs
-    /*var users = [
-        ['hamza', '789hamza'],
-        ['soufiane', '789soufiane'],
-        ['anas', '789anas']
-    ];
-    var sql = "INSERT INTO users (email, passe) VALUES ?";
-    connexion.query(sql, [users], (err) => {
-        if(err) throw err;
-        console.log("utilisateurs ajoutés");
-    });*/
-     //l'ajout d'un utilisateur, et afficher son id
-    var sql = "INSERT INTO users (email, passe) VALUES ('issa','issa')";
+    //afficher tous les utilisateurs
+    var sql = "SELECT * FROM users";
     connexion.query(sql, (err, data) => {
         if(err) throw err;
-        console.log("utilisateur ajouté avec id : ", data.insertId);
+        console.log("utilisateurs : ", data);
+    });
+
+    //afficher un utilisateur avec un id donnée
+    var sql = "SELECT * FROM users WHERE id=4";
+    connexion.query(sql, (err, data) => {
+        if(err) throw err;
+        console.log("utilisateur est  : ", data);
+    });
+
+    //afficher un utilisateur avec un email donnée
+    var sql = "SELECT * FROM users WHERE email='hamza'";
+    connexion.query(sql, (err, data) => {
+        if(err) throw err;
+        console.log("Résultat est  : ", data);
+    });
+
+    //afficher  utilisateurs qui email fini par e
+    var sql = "SELECT * FROM users WHERE email LIKE '%e'";
+    connexion.query(sql, (err, data) => {
+        if(err) throw err;
+        console.log("Résultat  : ", data);
+    });
+
+    //afficher  utilisateurs qui email commence par h
+    var sql = "SELECT * FROM users WHERE email LIKE 'h%'";
+    connexion.query(sql, (err, data) => {
+        if(err) throw err;
+        console.log("Résultat  : ", data);
     });
 });
