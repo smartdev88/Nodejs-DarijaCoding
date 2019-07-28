@@ -1,19 +1,18 @@
+var express = require('express')
+var app = express()
 
-var express = require('express');
+//import handlebars
+var exphbs  = require('express-handlebars');
 
-var app = express();
-
-
+//set template engine to handlebars
+app.engine('handlebars', exphbs({defaultLayout: 'main'}));
+app.set('view engine', 'handlebars');
+ 
 //page index
-app.get('/',function(req,res){
-  res.send('Hello world');
+app.get('/', function (req, res) {
+    res.render('home');
 });
-
-//contact page
-app.get('/contact',function(req,res){
-  res.send('Contact page');
-});
-
+ 
 //create server
 app.listen(3000, function () {
   console.log('server started at port 3000')
