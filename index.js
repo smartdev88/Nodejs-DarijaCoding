@@ -14,11 +14,23 @@ connexion.connect(function(err) {
     if (err) throw err;
     console.log("Connecté");
 
-    //securité
-    var email = "hamza"
-    var sql = "SELECT * FROM users WHERE email = "+ mysql.escape(email);
+    //les requetes sql
+
+    var sql = "UPDATE users SET email = 'achraf', passe = 'achraf' WHERE id = 5";
     connexion.query(sql, (err, data) => {
         if(err) throw err;
-        console.log("Résultat  : ", data);
+        console.log("modifié");
+    });
+
+    var sql = "SELECT * FROM users LIMIT 3";
+    connexion.query(sql, (err, data) => {
+        if(err) throw err;
+        console.log("résultat: ", data);
+    });
+
+    var sql = "DELETE FROM users WHERE id = 6";
+    connexion.query(sql, (err, data) => {
+        if(err) throw err;
+        console.log("supprimé");
     });
 });
